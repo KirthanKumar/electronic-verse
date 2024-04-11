@@ -5,15 +5,15 @@ export default function Corousel() {
   return (
     <div
       id="carouselExampleCaptions"
-      class="carousel slide carousel-fade"
+      className="carousel slide carousel-fade"
       data-bs-ride="carousel"
     >
-      <div class="carousel-indicators">
+      <div className="carousel-indicators">
         <button
           type="button"
           data-bs-target="#carouselExampleCaptions"
           data-bs-slide-to="0"
-          class="active"
+          className="active"
           aria-current="true"
           aria-label="Slide 1"
         ></button>
@@ -36,10 +36,10 @@ export default function Corousel() {
           aria-label="Slide 4"
         ></button>
       </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
+      <div className="carousel-inner">
+        <div className="carousel-item active">
           <SliderImage category="phone" />
-          <div class="carousel-caption d-none d-md-block">
+          <div className="carousel-caption d-none d-md-block">
             <h5>Phone</h5>
             <p>
               Phones, or smartphones, are mobile communication devices with
@@ -51,9 +51,9 @@ export default function Corousel() {
             </p>
           </div>
         </div>
-        <div class="carousel-item">
+        <div className="carousel-item">
           <SliderImage category="laptop" />
-          <div class="carousel-caption d-none d-md-block">
+          <div className="carousel-caption d-none d-md-block">
             <h5>Laptop</h5>
             <p>
               Laptops are portable computing devices designed for personal and
@@ -64,9 +64,9 @@ export default function Corousel() {
             </p>
           </div>
         </div>
-        <div class="carousel-item">
+        <div className="carousel-item">
           <SliderImage category="television" />
-          <div class="carousel-caption d-none d-md-block">
+          <div className="carousel-caption d-none d-md-block">
             <h5>Television</h5>
             <p>
               Televisions are electronic devices used for viewing broadcasted or
@@ -77,9 +77,9 @@ export default function Corousel() {
             </p>
           </div>
         </div>
-        <div class="carousel-item">
+        <div className="carousel-item">
           <SliderImage category="pc-component" />
-          <div class="carousel-caption d-none d-md-block">
+          <div className="carousel-caption d-none d-md-block">
             <h5>PC Components</h5>
             <p>
               PC components refer to individual hardware parts used to build or
@@ -93,22 +93,22 @@ export default function Corousel() {
         </div>
       </div>
       <button
-        class="carousel-control-prev"
+        className="carousel-control-prev"
         type="button"
         data-bs-target="#carouselExampleCaptions"
         data-bs-slide="prev"
       >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
+        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Previous</span>
       </button>
       <button
-        class="carousel-control-next"
+        className="carousel-control-next"
         type="button"
         data-bs-target="#carouselExampleCaptions"
         data-bs-slide="next"
       >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
+        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Next</span>
       </button>
     </div>
   );

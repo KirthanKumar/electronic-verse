@@ -78,5 +78,23 @@ router.get("/categorysort", async (req, res) => {
   }
 });
 
+// Endpoint for searching products by title
+router.get("/search", async (req, res) => {
+  const { query } = req.query;
+
+  try {
+    // Use regular expression to perform case-insensitive partial search
+    const regex = new RegExp(query, "i");
+    const products = await ProductModel.find({ heading: regex });
+    res.json(products);
+  } catch (error) {
+    console.error("Error searching products:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+
+
+
 // Export the router
 module.exports = router;

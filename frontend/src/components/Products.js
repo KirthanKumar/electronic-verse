@@ -9,7 +9,7 @@ const Products = ({ category, sort }) => {
     if (sort && !category) {
       fetchProductsBySorting();
     }
-    if ((category && !sort) || !sort) {
+    if ((category && !sort) || sort===null) {
       fetchProductsBasedOnCategory();
     }
     if (category && sort) {

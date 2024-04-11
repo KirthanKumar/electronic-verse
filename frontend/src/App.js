@@ -9,6 +9,7 @@ import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
 import ConfirmLogin from "./components/ConfirmLogin";
 import { useState } from "react";
+import SearchProducts from "./components/SearchProducts";
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -70,6 +71,7 @@ function App() {
           path="/confirmLogin"
           element={<ConfirmLogin showAlert={showAlert} />}
         />
+        <Route path="/search" element={<SearchProducts />} />
       </Routes>
     </Router>
   );

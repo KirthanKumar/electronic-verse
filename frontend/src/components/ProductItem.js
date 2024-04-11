@@ -32,6 +32,7 @@ const ProductItem = (props) => {
         <button
           className="btn btn-outline-danger"
           onClick={handleToggleWishlist}
+          disabled={!(localStorage.getItem("token"))}
         >
           <FontAwesomeIcon icon={isInWishlist ? fasHeart : farHeart} />
         </button>

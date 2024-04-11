@@ -21,7 +21,7 @@ export default function Navbar(props) {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           E-Verse
@@ -53,11 +53,11 @@ export default function Navbar(props) {
             <li className="nav-item">
               <Link
                 className={`nav-link ${
-                  location.pathname === "/about" ? "active" : ""
+                  location.pathname === "/search" ? "active" : ""
                 }`}
-                to="/about"
+                to="/search"
               >
-                About
+                Search Products
               </Link>
             </li>
           </ul>
