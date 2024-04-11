@@ -1,15 +1,19 @@
 import React from "react";
-// import { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import MyProfile from "./MyProfile";
 
-export default function Navbar() {
+export default function Navbar(props) {
   let location = useLocation();
   let navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/login");
+  };
+
+  const { onSelectCategory } = props;
+  const handleCategorySelect = (category) => {
+    onSelectCategory(category);
   };
 
   return (
@@ -53,6 +57,63 @@ export default function Navbar() {
               </Link>
             </li>
           </ul>
+          <div className="dropdown">
+            <button
+              className="btn btn-outline-primary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Category
+            </button>
+            <ul className="dropdown-menu">
+              <li>
+                <Link
+                  className="dropdown-item"
+                  to="/"
+                  onClick={() => handleCategorySelect("laptop")}
+                >
+                  Laptop
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="dropdown-item"
+                  to="/"
+                  onClick={() => handleCategorySelect("television")}
+                >
+                  Television
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="dropdown-item"
+                  to="/"
+                  onClick={() => handleCategorySelect("phone")}
+                >
+                  Phone
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="dropdown-item"
+                  to="/"
+                  onClick={() => handleCategorySelect("pc-components")}
+                >
+                  PC Components
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="dropdown-item"
+                  to="/"
+                  onClick={() => handleCategorySelect("all")}
+                >
+                  All
+                </Link>
+              </li>
+            </ul>
+          </div>
           {localStorage.getItem("token") && <MyProfile />}
           {!localStorage.getItem("token") ? (
             <form className="d-flex">

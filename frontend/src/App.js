@@ -21,12 +21,19 @@ function App() {
       setAlert(null);
     }, 1500);
   };
+
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+  };
+
   return (
     <Router>
-      <Navbar />
+      <Navbar onSelectCategory={handleCategorySelect} />
       <Alert alert={alert} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home selectedCategory={selectedCategory} />} />
         <Route exact path="/login" element={<Login showAlert={showAlert} />} />
         <Route
           exact
