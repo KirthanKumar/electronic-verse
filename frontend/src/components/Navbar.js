@@ -11,9 +11,13 @@ export default function Navbar(props) {
     navigate("/login");
   };
 
-  const { onSelectCategory } = props;
+  const { onSelectCategory, onSelectPriceFilter } = props;
   const handleCategorySelect = (category) => {
     onSelectCategory(category);
+  };
+
+  const handlePriceFilterSelect = (pricefilter) => {
+    onSelectPriceFilter(pricefilter);
   };
 
   return (
@@ -57,7 +61,46 @@ export default function Navbar(props) {
               </Link>
             </li>
           </ul>
-          <div className="dropdown">
+          <div className="dropdown mx-1 my-1">
+            <button
+              className="btn btn-outline-primary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Price
+            </button>
+            <ul className="dropdown-menu">
+              <li>
+                <Link
+                  className="dropdown-item"
+                  to="/"
+                  onClick={() => handlePriceFilterSelect("leasttomost")}
+                >
+                  least to most
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="dropdown-item"
+                  to="/"
+                  onClick={() => handlePriceFilterSelect("mosttoleast")}
+                >
+                  most to least
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="dropdown-item"
+                  to="/"
+                  onClick={() => handleCategorySelect(null)}
+                >
+                  Clear
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="dropdown mx-1 my-1">
             <button
               className="btn btn-outline-primary dropdown-toggle"
               type="button"

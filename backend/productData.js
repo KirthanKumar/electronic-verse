@@ -13,7 +13,7 @@ let productsData = [
       "https://d2d22nphq0yz8t.cloudfront.net/88e6cc4b-eaa1-4053-af65-563d88ba8b26/https://media.croma.com/image/upload/v1668663640/Croma%20Assets/Computers%20Peripherals/Laptop/Images/262842_1_rpu5fd.png/mxw_2256,f_auto",
     heading:
       "Acer Aspire 3 Intel Core i3 11th Gen (15.6 inch, 8GB, 512GB, Windows 11 Home, MS Office 2021, Intel UHD, Full HD LED-Backlit Display, Silver, NX.ADDSI.011) ",
-    price: "₹ 20,000",
+    price: 20000,
     features1: "Display: 39.62 cms (15.6 inches), FHD LED-Backlit",
     features2: "Memory: 8GB DDR4, 512GB SSD ROM",
     features3: "Processor: Intel Core i3 11th Generation",
@@ -34,7 +34,7 @@ let productsData = [
       "https://d2d22nphq0yz8t.cloudfront.net/88e6cc4b-eaa1-4053-af65-563d88ba8b26/https://media.croma.com/image/upload/v1657282804/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256601_oocztd.png/mxw_2256,f_auto",
     heading:
       "Apple MacBook Air 2022 (M2, 13.6 inch, 8GB, 256GB, macOS, Starlight)",
-    price: "₹50,000.00",
+    price: 50000,
     features1: "Processor: Apple M2",
     features2: "Display: 34.46 cm (13.6 inches) LED-Backlit",
     features3: "Memory: 8GB Unified Memory RAM, 256GB SSD ROM",
@@ -50,7 +50,7 @@ let productsData = [
     imgurl5: "https://m.media-amazon.com/images/I/51iyLssu-HL._SX679_.jpg",
     heading:
       "Lenovo ThinkBook 14 Intel Core i5 11th Gen 14(35.56cm) FHD IPS Laptop(8GB RAM/ 512GB SSD / Windows 11 Home / MS Office 2021 / Mineral Grey / 1.4 kg), 20VDA0THIH",
-    price: "₹19,000",
+    price: 19000,
     features1:
       "Processor: 11th Gen Intel Core i5-1135G7, 2.4 Ghz base clock, 4.2 Ghz max boost clock, 4 Cores, 8 MB Cache | Memory: 8GB Soldered RAM DDR4-3200 MHz upgradable upto 40 GB | Storage: 512GB SSD M.2",
     features2:
@@ -70,7 +70,7 @@ let productsData = [
     imgurl5: "https://m.media-amazon.com/images/I/61yzypPAPxL._SX679_.jpg",
     heading:
       "HP Pavilion AMD Ryzen 7 5800H 15.6 inches(39.6cm) FHD Gaming Laptop (16GB/512GB SSD/Windows 11 Home/NVIDIA RTX 3050 Graphics/MS Office/ Shadow Black & Ultra Violet/1.98 Kg), 15-ec2146AX",
-    price: "76,108",
+    price: 76108,
     features1:
       "Processor:AMD Ryzen 7 5800H (up to 4.4 GHz max boost clock(2i), 16 MB L3 cache,8 cores, 16 threads) (2.1 GHz base clock speed, up to 3.7 GHz max boost clock, 4 MB L3 cache, 4 cores)",
     features2:
@@ -90,7 +90,7 @@ let productsData = [
     imgurl5: "https://m.media-amazon.com/images/I/61VSQ2voiUL._SX679_.jpg",
     heading:
       "Dell XPS 9700 43.18cm 17-inches FHD Display Intel Laptop (10th Gen i7-10750H / 16 GB / 1TB SSD / 4 GB GTX Graphics/ Win 10 + MS Office / Silver) D560027WIN9S",
-    price: "₹1,05,000.00",
+    price: 105000,
     features1:
       "Processor:10th Generation Intel Core i7-10750H (12MB Cache, up to 5.0 GHz, 6 cores)",
     features2:
@@ -109,7 +109,7 @@ let productsData = [
     imgurl5: "https://m.media-amazon.com/images/I/71WFkpmp1hL._SX679_.jpg",
     heading:
       "Honor MagicBook 14, AMD Ryzen 5 5500U 14-inch (35.56 cm) FHD IPS Anti-Glare Thin and Light Laptop (16GB/512GB PCIe SSD/Windows 11/Fingerprint Login/Metal Body/Backlit KB/1.38Kg), Gray, NobelM-WFQ9AHNE",
-    price: " ₹44,990",
+    price: 44990,
     features1:
       "【 Stylish Appearance】 Honor Magicbook 14 has a Premium Aluminium Metal Body with 15.9MM Thickness, 4.8 MM Narrow Bezels, and the weight of the laptop is only 1.38kg, which allows you to carry it easily, making it very convenient for travel and work",
     features2:
@@ -128,7 +128,7 @@ let productsData = [
     imgurl4: "https://m.media-amazon.com/images/I/41Lr0gi5DrL._SX679_.jpg",
     imgurl5: "https://m.media-amazon.com/images/I/41gVmaKUTTL.jpg",
     heading: "OnePlus 8T 5G (Aquamarine Green, 8GB RAM, 128GB Storage)",
-    price: "25000",
+    price: 25000,
     features1: "8 GB RAM | 128 GB ROM",
     features2: "16.64 cm (6.55 inch) Display",
     features3: "48MP Rear Camera",
@@ -143,7 +143,7 @@ let productsData = [
     imgurl4: "https://m.media-amazon.com/images/I/21YsCeUMVkL.jpg",
     imgurl5: "https://m.media-amazon.com/images/I/11jZmOWeo3L.jpg",
     heading: "Realme GT Neo 2 128 GB (Neo Blue, 8 GB RAM)",
-    price: "46000",
+    price: 46000,
     features1: "Android 11.0",
     features2: "RAM 8 GB",
     features3:
@@ -164,7 +164,7 @@ let productsData = [
     imgurl5:
       "https://d2d22nphq0yz8t.cloudfront.net/88e6cc4b-eaa1-4053-af65-563d88ba8b26/https://media.croma.com/image/upload/v1664009474/Croma%20Assets/Communication/Mobiles/Images/243461_11_kvefhl.png/mxw_2256,f_auto",
     heading: "Apple iPhone 13 (128GB, Pink)",
-    price: " 2999",
+    price: 2999,
     features1: "Display: 6.1 inches (15.4 cm), Super Retina XDR OLED",
     features2: "Memory: 128GB ROM",
     features3: "Processor: Apple A15 Bionic, Hexa Core",
@@ -183,7 +183,7 @@ let productsData = [
     imgurl5:
       "https://m.media-amazon.com/images/I/21LnkTg1exL._SX38_SY50_CR,0,0,38,50_.jpg",
     heading: "Nothing Phone (1) 5G (Black, 128 GB) (8 GB RAM)",
-    price: "15000",
+    price: 15000,
     features1: "8 GB RAM | 128 GB ROM",
     features2: "16.64 cm (6.55 inch) Full HD+ Display",
     features3: "50MP + 50MP | 16MP Front Camera",
@@ -202,7 +202,7 @@ let productsData = [
       "https://m.media-amazon.com/images/I/31g-VDS5m-L._SX38_SY50_CR,0,0,38,50_.jpg",
     heading:
       "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
-    price: "20000",
+    price: 20000,
     features1:
       "Camera: 50MP Main Camera with Sony IMX766 and 2MP Macro Camera with Dual LED Flash; 16MP Front (Selfie) Camera with Sony IMX471",
     features2:
@@ -223,7 +223,7 @@ let productsData = [
     imgurl5: "https://m.media-amazon.com/images/I/41u6u8ZR00L._SY879_.jpg",
     heading:
       "iQOO 9 SE 5G (Space Fusion, 8GB RAM, 128GB Storage) | Qualcomm Snapdragon 888 | 66W Flash Charge",
-    price: "30,990",
+    price: 30990,
     features1:
       "Qualcomm Snapdragon 888 5G Mobile Platform is based on a new 5 nm process and a Kryo680 architecture, Compared with Snapdragon 870, the CPU performance improves by 25%, GPU performance by 35%. Along with Enhanced LPDDR 5 & Enhanced UFS 3.1 (V6).",
     features2:
@@ -247,7 +247,7 @@ let productsData = [
     imgurl5:
       "https://m.media-amazon.com/images/I/41Xki43yW3L._SX38_SY50_CR,0,0,38,50_.jpg",
     heading: "Google Pixel 6 (Black, 8GB RAM, 128GB Storage)",
-    price: "24000",
+    price: 24000,
     features1: "Android 9.0, Android",
     features2: "8 GB",
     features3: "76 x 76 x 66 cm; 350 Grams",
@@ -266,7 +266,7 @@ let productsData = [
     imgurl5:
       "https://m.media-amazon.com/images/I/21jSRxmsA5L._SX38_SY50_CR,0,0,38,50_.jpg",
     heading: "Vivo Y12 (Aqua Blue, 3GB RAM, 64GB Storage) Without Offer",
-    price: "22000",
+    price: 22000,
     features1:
       "13+8+2MP AI triple rear camera with HDR mode and portrait mode | 8MP front camera with face beauty, portrait bokeh",
     features2:
@@ -288,8 +288,8 @@ let productsData = [
       "https://m.media-amazon.com/images/I/21rGXLJ2+xL._SX38_SY50_CR,0,0,38,50_.jpg",
     imgurl5:
       "https://m.media-amazon.com/images/I/21rGXLJ2+xL._SX38_SY50_CR,0,0,38,50_.jpg",
-    heading: "",
-    price: "OPPO Reno7 Pro 5G 8GB RAM 256GB Storage",
+    heading: "OPPO Reno7 Pro 5G 8GB RAM 256GB Storage",
+    price: 25000,
     features1: "12 GB RAM | 256 GB ROM",
     features2: "16.51 cm (6.5 inch) Full HD+ AMOLED Display",
     features3: "50MP + 8MP + 2MP | 32MP Front Camera",
@@ -301,7 +301,7 @@ let productsData = [
     imgurl1: "https://m.media-amazon.com/images/I/51FAWVStZiL._SX679_.jpg",
     heading:
       "Crucial BX500 500GB 2.5-inch SATA 3D NAND Internal SSD Upto 550 MB/s",
-    price: "2500",
+    price: 2500,
     features1: "Digital Storage Capacity	500 GB",
     features2: "Digital Storage Capacity	500 GBConnector Type	SATA",
     features3: "Brand	Crucial",
@@ -315,7 +315,7 @@ let productsData = [
 
     heading:
       "AMD Ryzen™ 5 5600G Desktop Processor (6-core/12-thread, 19MB Cache, up to 4.4 GHz max Boost) with Radeon™ Graphics",
-    price: "29000",
+    price: 29000,
     features1: "6 Cores & 12 Threads, 19 MB Cache. Turbo Boost :Yes",
     features2:
       "Base Clock: 3.9 GHz, Max Boost Clock: up to 4.4 GHz. Virtualization Support: Yes",
@@ -333,7 +333,7 @@ let productsData = [
     imgurl5: "https://m.media-amazon.com/images/I/31Ap0L6UDmL._SS40_.jpg",
     heading:
       "Corsair Vengeance LPX 8GB DDR4 3000 (PC4-24000) C16 PC Memory (CMK8GX4M1D3000C16)",
-    price: "1500",
+    price: 1500,
     features1:
       "Each vengeance LPX module is built with a pure aluminium heat spreader for faster heat dissipation and cooler operation",
     features2:
@@ -352,7 +352,7 @@ let productsData = [
     imgurl4: "https://m.media-amazon.com/images/I/4102PsbybyL._SS40_.jpg",
     imgurl5: "https://m.media-amazon.com/images/I/41kbZ0X84JL._SS40_.jpg",
     heading: "TOSHIBA N300 Internal 10TB NAS HDD 7200 RPM Hard Drive",
-    price: "46000",
+    price: 46000,
     features1:
       "Toshiba, Toshiba India Pvt. Ltd. | Address: 601, C & B Square Plaza, Andheri - east, Mumbai - 400059 | Contact: 022-6191500",
     features2: "Toshiba N300 NAS Internal HDD",
@@ -373,7 +373,7 @@ let productsData = [
       "https://m.media-amazon.com/images/I/210VtJLPtIL._SX38_SY50_CR,0,0,38,50_.jpg",
     heading:
       "PCCOOLER Halo Fixed Color Fan with 1400 RPM, 120mm 4-Pin PWM RGB Fan",
-    price: "400",
+    price: 400,
     features1:
       "The 120mm PWM controlled fans comes with Hydraulic Bearing and a dynamic speed adjustment of 1400RPM.",
     features2:
@@ -393,7 +393,7 @@ let productsData = [
     imgurl5: "https://m.media-amazon.com/images/I/61P4td8CKcL._SX679_.jpg",
     heading:
       "MI 100 cm (40 inches) 5A Series Full HD Smart Android LED TV L40M7-EAIN (Black)",
-    price: "24999",
+    price: 24999,
     features1:
       "The brands, Mi and Xiaomi, are part of the same multinational conglomerateResolution: Full HD(1920 x 1080) Resolution | Refresh Rate : 60 Hertz | 178 Degree wide viewing angle",
     features2:
@@ -417,7 +417,7 @@ let productsData = [
       "https://d2d22nphq0yz8t.cloudfront.net/88e6cc4b-eaa1-4053-af65-563d88ba8b26/https://media.croma.com/image/upload/v1664429784/Croma%20Assets/Entertainment/Television/Images/258796_6_puyngb.png/mxw_2256,f_auto",
     heading:
       "Foxsky 127 cm (50 inch) 4K Ultra HD LED Android TV with Google Assistant (2021 model)",
-    price: "19999",
+    price: 19999,
     features1:
       "Display: LED Ultra HD 4K, 3840 x 2160 pixels, 60 Hz Refresh Rate",
     features2: "Connectivity: 2 HDMI | 2 USB | Wi-Fi",
@@ -434,7 +434,7 @@ let productsData = [
     imgurl5: "https://m.media-amazon.com/images/I/41bS7KwIJ2L._SS40_.jpg",
     heading:
       "OnePlus 108 cm (43 inches) Y Series 4K Ultra HD Smart Android LED TV 43Y1S Pro (Black)",
-    price: "29999",
+    price: 29999,
     features1: "Resolution : 4K Ultra HD (3840x2160) | Refresh Rate : 60 Hertz",
     features2:
       "Connectivity: 3 HDMI ports to connect set top box, Blu Ray players, gaming console | 2 USB ports to connect hard drives and other USB devices | Dual-band Wi-Fi",
@@ -452,7 +452,7 @@ let productsData = [
     imgurl5: "https://m.media-amazon.com/images/I/41xS2YmTCCL._SS40_.jpg",
     heading:
       "Sony Bravia 108 cm (43 inches) Full HD Smart LED TV 43W6600 (Black) (2020 Model)",
-    price: "45999",
+    price: 45999,
     features1:
       "Smart TV Features: Smart TV | Screen Mirroring | Netflix | HDR Gaming",
     features2:

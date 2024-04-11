@@ -2,7 +2,7 @@ const connectToMongo = require("./db");
 const express = require("express");
 const cors = require("cors");
 
-connectToMongo()
+connectToMongo();
 // connectToMongo().catch(console.dir);
 
 const app = express();
@@ -13,10 +13,10 @@ app.use(cors());
 
 // Available routes
 app.use("/api/auth", require("./routes/auth"));
-app.use("/api/sauth", require("./routes/signupAuth"))
-app.use("/api/fpauth", require("./routes/forgotPassAuth"))
-app.use("/api/dauth", require("./routes/deleteAccountRoute"))
-app.use("/api/confirmauth", require("./routes/confirmLoginRoute"))
+app.use("/api/sauth", require("./routes/signupAuth"));
+app.use("/api/fpauth", require("./routes/forgotPassAuth"));
+app.use("/api/dauth", require("./routes/deleteAccountRoute"));
+app.use("/api/confirmauth", require("./routes/confirmLoginRoute"));
 app.use("/products", require("./routes/fetchProductsRoute"));
 
 app.listen(port, () => {

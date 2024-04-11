@@ -28,12 +28,29 @@ function App() {
     setSelectedCategory(category);
   };
 
+  const [selectedPriceFilter, setSelectedPriceFilter] = useState("");
+
+  const handlePriceFilterSelect = (pricefilter) => {
+    setSelectedPriceFilter(pricefilter);
+  };
+
   return (
     <Router>
-      <Navbar onSelectCategory={handleCategorySelect} />
+      <Navbar
+        onSelectCategory={handleCategorySelect}
+        onSelectPriceFilter={handlePriceFilterSelect}
+      />
       <Alert alert={alert} />
       <Routes>
-        <Route path="/" element={<Home selectedCategory={selectedCategory} />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              selectedCategory={selectedCategory}
+              selectedPriceFilter={selectedPriceFilter}
+            />
+          }
+        />
         <Route exact path="/login" element={<Login showAlert={showAlert} />} />
         <Route
           exact

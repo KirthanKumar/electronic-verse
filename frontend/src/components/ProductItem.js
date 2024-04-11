@@ -27,7 +27,7 @@ const ProductItem = (props) => {
         style={{ width: "250px", height: "200px", objectFit: "contain" }}
       />
       <div className="card-body">
-        <h5 className="card-title">{product.heading}</h5>
+        <h5 className="card-title">{product.heading.slice(0, 50) + "..."}</h5>
         <p className="card-text">Price: {product.price}</p>
         <button
           className="btn btn-outline-danger"
