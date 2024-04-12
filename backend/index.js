@@ -18,6 +18,8 @@ app.use("/api/fpauth", require("./routes/forgotPassAuth"));
 app.use("/api/dauth", require("./routes/deleteAccountRoute"));
 app.use("/api/confirmauth", require("./routes/confirmLoginRoute"));
 app.use("/products", require("./routes/fetchProductsRoute"));
+app.use("/cart", require("./routes/cartRoute"));
+
 
 app.listen(port, () => {
   console.log(`iNotebook app listening on http://localhost:${port}`);

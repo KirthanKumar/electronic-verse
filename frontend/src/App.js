@@ -10,6 +10,7 @@ import ResetPassword from "./components/ResetPassword";
 import ConfirmLogin from "./components/ConfirmLogin";
 import { useState } from "react";
 import SearchProducts from "./components/SearchProducts";
+import Cart from "./components/ShoppingCart"
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -72,6 +73,7 @@ function App() {
           element={<ConfirmLogin showAlert={showAlert} />}
         />
         <Route path="/search" element={<SearchProducts />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </Router>
   );

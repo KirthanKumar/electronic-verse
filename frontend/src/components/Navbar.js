@@ -60,6 +60,16 @@ export default function Navbar(props) {
                 Search Products
               </Link>
             </li>
+            <li className="nav-item">
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/cart" ? "active" : ""
+                }`}
+                to="/cart"
+              >
+                Cart
+              </Link>
+            </li>
           </ul>
           <div className="dropdown mx-1 my-1">
             <button
