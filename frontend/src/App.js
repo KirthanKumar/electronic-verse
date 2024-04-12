@@ -11,6 +11,7 @@ import ConfirmLogin from "./components/ConfirmLogin";
 import { useState } from "react";
 import SearchProducts from "./components/SearchProducts";
 import Cart from "./components/ShoppingCart"
+import ProductPage from "./components/ProductPage";
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -45,7 +46,7 @@ function App() {
       <Alert alert={alert} />
       <Routes>
         <Route
-          path="/"
+          exact path="/"
           element={
             <Home
               selectedCategory={selectedCategory}
@@ -65,15 +66,18 @@ function App() {
           element={<ForgotPassword showAlert={showAlert} />}
         />
         <Route
+          exact
           path="/resetpassword/:token"
           element={<ResetPassword showAlert={showAlert} />}
         />
         <Route
+          exact
           path="/confirmLogin"
           element={<ConfirmLogin showAlert={showAlert} />}
         />
-        <Route path="/search" element={<SearchProducts />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route exact path="/search" element={<SearchProducts />} />
+        <Route exact path="/cart" element={<Cart />} />
+        <Route exact path="/product/:productId" element={<ProductPage/>} />
       </Routes>
     </Router>
   );
