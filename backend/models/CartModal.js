@@ -11,13 +11,19 @@ const cartItemSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  heading: String,
-  price: Number,
+  price: {
+    type: Number,
+    required: true,
+  },
+  heading: {
+    type: String,
+    required: true,
+  },
   imgurl: String,
   insertionTime: {
     type: String, // or Date type if you prefer
-    default: () => new Date().toLocaleString()
-  }
+    default: () => new Date().toLocaleString(),
+  },
 });
 
 // Define schema for Cart collection/table

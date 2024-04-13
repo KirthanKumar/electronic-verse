@@ -8,6 +8,9 @@ export default function Navbar(props) {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("name");
+    localStorage.removeItem("email");
+
     navigate("/login");
   };
 

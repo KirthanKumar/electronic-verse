@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useTotalAmount } from "../context/TotalAmountContext";
 
 const ShoppingCart = () => {
   const [cartItems, setCartItems] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetchCartItems();
+    if (localStorage.getItem("token")) {
+      fetchCartItems();
+    }
   }, []);
 
   const fetchCartItems = async () => {
@@ -82,11 +87,25 @@ const ShoppingCart = () => {
     );
   };
 
+  // When the "Place Order" button is clicked, navigate to the Payment component
+  // eslint-disable-next-line
+  const { totalAmount, setTotalAmount } = useTotalAmount();
+
+  const handlePlaceOrderClick = () => {
+    const newTotalAmount = calculateTotal();
+    setTotalAmount(newTotalAmount);
+    navigate("/payment");
+  };
+
   return (
     <div className="container">
       <h2>Shopping Cart</h2>
       {cartItems.length === 0 ? (
-        <p>Your cart is empty</p>
+        <p>
+          {localStorage.getItem("token")
+            ? "Your cart is empty"
+            : "Login to use this functionality."}
+        </p>
       ) : (
         <div className="container row" style={{ margin: "0 auto" }}>
           {cartItems.map((item) => (
@@ -135,6 +154,12 @@ const ShoppingCart = () => {
             </div>
           ))}
           <p>Total: {calculateTotal()}</p>
+          <button
+            className="btn btn-outline-primary"
+            onClick={handlePlaceOrderClick}
+          >
+            Place Order
+          </button>
         </div>
       )}
     </div>

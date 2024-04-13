@@ -19,6 +19,8 @@ app.use("/api/dauth", require("./routes/deleteAccountRoute"));
 app.use("/api/confirmauth", require("./routes/confirmLoginRoute"));
 app.use("/products", require("./routes/fetchProductsRoute"));
 app.use("/cart", require("./routes/cartRoute"));
+app.use("/api/admin", require("./routes/adminRoute"));
+app.use("/checkout", require("./routes/paymentRoute"));
 
 
 app.listen(port, () => {
