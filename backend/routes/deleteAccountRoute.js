@@ -5,6 +5,8 @@ const fetchuser = require("../middleware/fetchUser");
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const DeviceModel = require("../models/DeviceModel");
+const CartModal = require("../models/CartModal")
+const PaymentModel = require("../models/PaymentModel");
 
 // Route for deleting user account
 router.delete("/deleteAccount", fetchuser, async (req, res) => {
@@ -36,7 +38,9 @@ router.delete("/deleteAccount", fetchuser, async (req, res) => {
 
     // If password matches, delete the user account
     await User.deleteOne({_id: userId });
-    await DeviceModel.deleteOne({ user: userId })
+    await DeviceModel.deleteOne({ _id: userDevice._id })
+    await CartModal.deleteOne({ userId: userId });
+    await PaymentModel.deleteOne({ userId: userId });
 
     success = true;
     res.status(200).json({ message: "Account deleted successfully", success });

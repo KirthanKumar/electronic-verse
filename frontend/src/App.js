@@ -20,6 +20,7 @@ import Orders from "./components/Orders"
 import React from "react";
 import { TotalAmountProvider } from "./context/TotalAmountContext";
 import AdminConfirmPayment from "./components/AdminConfirmPayment";
+import AdminBanUsers from "./components/AdminBanUsers";
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -104,7 +105,16 @@ function App() {
             <Route exact path="/orders" element={<Orders />} />
 
             <Route exact path="/admin/login" element={<AdminLogin />} />
-            <Route exact path="/admin/confirmpayment" element={<AdminConfirmPayment />} />
+            <Route
+              exact
+              path="/admin/confirmpayment"
+              element={<AdminConfirmPayment />}
+            />
+            <Route
+              exact
+              path="/admin/banusers"
+              element={<AdminBanUsers />}
+            />
           </Routes>
         </Router>
       </TotalAmountProvider>

@@ -49,7 +49,7 @@ const ResetPassword = (props) => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Reset Password</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">

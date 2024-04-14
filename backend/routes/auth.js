@@ -31,7 +31,7 @@ router.post(
     //   if there are errors return bad request and the errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ errors: errors.array(), success });
     }
 
     const { email, password } = req.body;
@@ -39,18 +39,28 @@ router.post(
       let user = await User.findOne({ email });
       if (!user) {
         success = false;
+        return res.status(400).json({
+          error: "Please try to login with correct credentials",
+          success,
+          banned: false,
+        });
+      }
+      // console.log(user);
+
+      if (user.isBanned) {
         return res
           .status(400)
-          .json({ error: "Please try to login with correct credentials" });
+          .json({ error: "You are banned", success, banned: true });
       }
-      console.log(user);
 
       const passwordCompare = await bcrypt.compare(password, user.password);
 
       if (!passwordCompare) {
-        return res
-          .status(400)
-          .json({ error: "Please try to login with correct credentials" });
+        return res.status(400).json({
+          error: "Please try to login with correct credentials",
+          success,
+          banned: false,
+        });
       }
 
       const data = { user: { id: user.id } };
@@ -68,14 +78,14 @@ router.post(
       const version = agent.toVersion();
       const ipAddress = req.ip;
 
-      console.log(os);
-      console.log(browser);
-      console.log(version);
-      console.log(ipAddress);
+      // console.log(os);
+      // console.log(browser);
+      // console.log(version);
+      // console.log(ipAddress);
 
       // const navigate = useNavigate();
 
-      console.log(user);
+      // console.log(user);
 
       const device = await DeviceModel.findOne({
         os,
@@ -84,7 +94,7 @@ router.post(
         user: user._id,
       });
 
-      console.log(device);
+      // console.log(device);
 
       if (!device) {
         // Generate a random password reset token
@@ -121,6 +131,7 @@ router.post(
             return res.status(500).json({
               success,
               error: "Failed to send email. Please try again later." + error,
+              banned: false,
             });
           }
           console.log("Email sent: " + info.response);
@@ -128,6 +139,7 @@ router.post(
             success,
             message:
               "Confirmation code has been sent to your email for verification.",
+            banned: false,
           });
         });
       }
@@ -141,9 +153,9 @@ router.post(
           authtoken,
           email: req.body.email,
           name: user.name,
+          banned: false,
         });
       }
-
     } catch (error) {
       console.log(error.message);
       res.status(500).send("Internal Server Error");

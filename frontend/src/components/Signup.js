@@ -42,7 +42,10 @@ const Signup = (props) => {
       }),
     });
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
+    if (!json.success) {
+      props.showAlert(json.error, "danger")
+    }
   };
 
   const handleVerifyOTP = async (e) => {

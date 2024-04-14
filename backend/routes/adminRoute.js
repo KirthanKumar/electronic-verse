@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 const JWT_SECRET = "whatsoever";
 const PaymentModel = require("../models/PaymentModel"); // Import Payment model
 const nodemailer = require("nodemailer");
+const User = require("../models/User")
 
 // Route 1 : Authenticate Admin using : POST "/api/admin/login". No login required
 router.post(
@@ -133,6 +134,35 @@ router.put("/confirmpayment/:orderId", async (req, res) => {
   } catch (error) {
     console.error("Error sending confirmation email:", error);
     return res.status(500).json({ error: "Failed to send email to user" });
+  }
+});
+
+// Endpoint to fetch all users
+router.get("/users", async (req, res) => {
+  try {
+    // Retrieve all users from the database
+    const users = await User.find({}, { password: 0 }); // Exclude password field from the response
+
+    res.status(200).json({ success: true, users });
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    res.status(500).json({ success: false, error: "Failed to fetch users" });
+  }
+});
+
+// Endpoint to toggle the ban status of a user
+router.put("/ban-user/:userId", async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const { isBanned } = req.body;
+
+    // Update the user's ban status in the database
+    await User.findByIdAndUpdate(userId, { isBanned });
+
+    res.status(200).json({ success: true, message: "Ban status updated successfully" });
+  } catch (error) {
+    console.error("Error toggling ban status:", error);
+    res.status(500).json({ success: false, error: "Failed to toggle ban status" });
   }
 });
 

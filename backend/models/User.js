@@ -6,6 +6,7 @@ const userSchema = new Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   date: { type: Date, default: Date.now }, // should not do Date.now() instead should only specify function which should run when a document will get inserted to mongo. So do Date.now
+  isBanned:{type: Boolean, default:false, required:true}
 });
 
 const User = mongoose.model("user", userSchema);

@@ -38,7 +38,9 @@ const Login = (props) => {
       localStorage.setItem("email", json.email);
       navigate("/");
       props.showAlert("Logged In Successfully", "success");
-    } else {
+    } else if (!json.success && json.banned) {
+      props.showAlert("You are banned", "warning");
+    } else if (!json.success) {
       props.showAlert("Invalid credentials", "danger");
     }
   };

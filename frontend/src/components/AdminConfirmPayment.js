@@ -119,7 +119,7 @@ const Orders = () => {
                 <p style={{ color: `${order.confirmed ? "green" : "red"}` }}>
                   Status:{" "}
                   {order.confirmed
-                    ? "Payment received, check confirmation email"
+                    ? "Payment done"
                     : "Payment not done"}
                 </p>
                 <button
