@@ -21,6 +21,7 @@ app.use("/products", require("./routes/fetchProductsRoute"));
 app.use("/cart", require("./routes/cartRoute"));
 app.use("/api/admin", require("./routes/adminRoute"));
 app.use("/checkout", require("./routes/paymentRoute"));
+app.use("/api/user/address", require("./routes/userLocationRoute"))
 
 
 app.listen(port, () => {

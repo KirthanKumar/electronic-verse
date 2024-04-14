@@ -16,6 +16,7 @@ import AdminLogin from "./components/AdminLogin";
 import AdminNavbar from "./components/AdminNavbar"
 import Payment from "./components/Payment";
 import Orders from "./components/Orders"
+import Location from "./components/Location"
 
 import React from "react";
 import { TotalAmountProvider } from "./context/TotalAmountContext";
@@ -110,11 +111,8 @@ function App() {
               path="/admin/confirmpayment"
               element={<AdminConfirmPayment />}
             />
-            <Route
-              exact
-              path="/admin/banusers"
-              element={<AdminBanUsers />}
-            />
+            <Route exact path="/admin/banusers" element={<AdminBanUsers />} />
+            <Route exact path="/location" element={<Location />} />
           </Routes>
         </Router>
       </TotalAmountProvider>

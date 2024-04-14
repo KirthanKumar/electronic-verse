@@ -94,7 +94,7 @@ const ShoppingCart = () => {
   const handlePlaceOrderClick = () => {
     const newTotalAmount = calculateTotal();
     setTotalAmount(newTotalAmount);
-    navigate("/payment");
+    navigate("/location");
   };
 
   return (
