@@ -108,7 +108,7 @@ router.post("/", async (req, res) => {
     const user = await User.findOne({ email });
     //   console.log(user);
     const cart = await CartModal.findOne({ userId: user._id });
-    console.log(cart);
+    // console.log(cart);
 
     if (!cart) {
       return res.status(404).json({ error: "Cart not found" });

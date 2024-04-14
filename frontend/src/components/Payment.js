@@ -9,8 +9,9 @@ const Payment = () => {
 
   const { totalAmount } = useTotalAmount();
 
-  const handlePaymentSubmit = async () => {
+  const handlePaymentSubmit = async (e) => {
     try {
+      e.preventDefault();
       const userEmail = localStorage.getItem("email");
       // Send request to backend to add payment details to database
       const response = await fetch("http://localhost:5000/checkout/payment", {
@@ -24,11 +25,12 @@ const Payment = () => {
           userEmail,
         }),
       });
-        console.log(response.success);
-      if (response.success) {
+      console.log(response);
+      console.log(response.ok);
+      if (response.ok) {
         // Redirect user to confirmation page or display success message
         alert("Success");
-        navigate("/order");
+        navigate("/orders");
       } else {
         throw new Error("Failed to submit payment");
       }

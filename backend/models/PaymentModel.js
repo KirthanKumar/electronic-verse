@@ -33,6 +33,7 @@ const paymentSchema = new mongoose.Schema({
         type: String,
         requires: true,
       },
+      imgurl: String,
     },
   ],
   totalAmount: {
@@ -44,8 +45,8 @@ const paymentSchema = new mongoose.Schema({
     default: false,
   },
   createdAt: {
-    type: Date,
-    default: Date.now,
+    type: String,
+    default: () => new Date().toLocaleString(),
   },
 });
 

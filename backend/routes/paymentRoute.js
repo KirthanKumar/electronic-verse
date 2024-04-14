@@ -24,6 +24,7 @@ router.post("/payment", async (req, res) => {
           productId: item.productId,
           quantity: item.quantity,
           price: item.price,
+          imgurl: item.imgurl,
           heading: item.heading,
         });
       });
@@ -77,5 +78,20 @@ router.post("/payment", async (req, res) => {
     res.status(500).json({ error: "Failed to submit payment", success: false });
   }
 });
+
+// Endpoint to fetch all orders done by the user
+router.get("/orders", async (req, res) => {
+  try {
+    const { userEmail } = req.query; // Retrieve user email from query parameters
+    // Find all orders with the user's email
+    const orders = await PaymentModel.find({ userEmail });
+    // console.log(orders);
+    return res.status(200).json({ orders, success: true });
+  } catch (error) {
+    console.error("Error fetching orders:", error);
+    return res.status(500).json({ error: "Failed to fetch orders", success: false });
+  }
+});
+
 
 module.exports = router;

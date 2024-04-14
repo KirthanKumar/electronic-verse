@@ -15,6 +15,7 @@ import ProductPage from "./components/ProductPage";
 import AdminLogin from "./components/AdminLogin";
 import AdminNavbar from "./components/AdminNavbar"
 import Payment from "./components/Payment";
+import Orders from "./components/Orders"
 
 import React from "react";
 import { TotalAmountProvider } from "./context/TotalAmountContext";
@@ -99,6 +100,8 @@ function App() {
             <Route exact path="/cart" element={<Cart />} />
             <Route exact path="/product/:productId" element={<ProductPage />} />
             <Route exact path="/payment" element={<Payment />} />
+            <Route exact path="/orders" element={<Orders />} />
+
             <Route exact path="/admin/login" element={<AdminLogin />} />
           </Routes>
         </Router>

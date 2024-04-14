@@ -155,7 +155,7 @@ const ShoppingCart = () => {
           ))}
           <p>Total: {calculateTotal()}</p>
           <button
-            className="btn btn-outline-primary"
+            className="btn btn-outline-primary mb-5"
             onClick={handlePlaceOrderClick}
           >
             Place Order
