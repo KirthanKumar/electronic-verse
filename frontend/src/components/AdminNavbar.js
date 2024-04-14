@@ -46,16 +46,6 @@ export default function Navbar() {
             <li className="nav-item">
               <Link
                 className={`nav-link ${
-                  location.pathname === "/admin/addproduct" ? "active" : ""
-                }`}
-                to="/admin/addproduct"
-              >
-                Add Product
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className={`nav-link ${
                   location.pathname === "/admin/banusers" ? "active" : ""
                 }`}
                 to="/admin/banusers"

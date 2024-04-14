@@ -68,7 +68,7 @@ router.post("/payment", async (req, res) => {
              <p>Total amount: ${totalAmount}</p>`,
     };
 
-    // await transporter.sendMail(mailOptions);
+    await transporter.sendMail(mailOptions);
 
     // Assuming the payment is successfully processed, send a success response
     res.status(200).json({ message: "Payment submitted successfully", success: true});

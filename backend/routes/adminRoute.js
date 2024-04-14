@@ -5,6 +5,8 @@ const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = "whatsoever";
+const PaymentModel = require("../models/PaymentModel"); // Import Payment model
+const nodemailer = require("nodemailer");
 
 // Route 1 : Authenticate Admin using : POST "/api/admin/login". No login required
 router.post(
@@ -61,5 +63,77 @@ router.post(
     }
   }
 );
+
+// Endpoint to fetch all orders done by the user
+router.get("/confirmpayment", async (req, res) => {
+  try {
+    // Find all orders with the user's email
+    const orders = await PaymentModel.find();
+    return res.status(200).json({ orders, success: true });
+  } catch (error) {
+    console.error("Error fetching orders:", error);
+    return res.status(500).json({ error: "Failed to fetch orders", success: false });
+  }
+});
+
+// Endpoint to update order confirmation status
+router.put("/confirmpayment/:orderId", async (req, res) => {
+  try {
+    const { orderId } = req.params;
+    const { confirmed } = req.body;
+
+    // Find the order by ID and update the confirmation status
+    const order = await PaymentModel.findByIdAndUpdate(
+      orderId,
+      { confirmed },
+      { new: true }
+    );
+
+    if (!order) {
+      return res.status(404).json({ error: "Order not found" });
+    }
+
+    const orderEmailConfirmed = await PaymentModel.findById(orderId);
+    const orderDetails = orderEmailConfirmed.orderDetails;
+    const totalAmount = orderEmailConfirmed.totalAmount;
+
+
+    // Send email to user with product details and total amount and payment confirmation status
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      tls: {
+        rejectUnauthorized: false, // Disables SSL certificate verification
+      },
+      auth: {
+        user: "testingmernapp@gmail.com",
+        pass: "enfz hdqk kvwk janp",
+      },
+    });
+
+    const mailOptions = {
+      from: "testingmernapp@gmail.com",
+      to: `${orderEmailConfirmed.userEmail}`,
+      subject: "Payment confirmation",
+      html: `<p>Payment ${(orderEmailConfirmed.confirmed)?"Successful":"Failed"}.</p>
+             <p>Product details:</p>
+             <ul>
+               ${orderDetails.map(
+                 (item) =>
+                   `<li>${item.heading} - ${item.quantity} x ${item.price}</li>`
+               )}
+             </ul>
+             <p>Total amount: ${totalAmount}</p>`,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    return res
+      .status(200)
+      .json({ message: "confirmation email sent to user", order });
+  } catch (error) {
+    console.error("Error sending confirmation email:", error);
+    return res.status(500).json({ error: "Failed to send email to user" });
+  }
+});
 
 module.exports = router;
