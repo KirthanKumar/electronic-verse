@@ -2,11 +2,11 @@
 
 const mongoose = require("mongoose");
 const productsData = require("./productData");
-const mongoURI = "mongodb://localhost:27017/electronic-verse";
+const mongoURI =
+  "mongodb+srv://skirthankumar13579:" +
+  encodeURIComponent("testingmern@kirthan") +
+  "@mern.9b1vtuo.mongodb.net/electronic-verse";;
 const ProductModel = require("./models/ProductModel");
-// "mongodb+srv://skirthankumar13579:" +
-// encodeURIComponent("testingmern@kirthan") +
-// "@mern.9b1vtuo.mongodb.net/electronic-verse";
 
 const connectToMongo = () => {
   mongoose

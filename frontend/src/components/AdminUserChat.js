@@ -7,7 +7,7 @@ const AdminUserChat = () => {
   const [selectedUser, setSelectedUser] = useState(null); // State to track selected user
 
   useEffect(() => {
-    const socket = io("http://localhost:5000");
+    const socket = io("https://electronic-verse.onrender.com");
 
     // Event listener for receiving list of users
     socket.on("users", ({ users }) => {

@@ -28,7 +28,7 @@ const ProductItem = (props) => {
   const addToCart = async (productId, quantity, heading, price, imgurl) => {
     try {
       const email = localStorage.getItem("email");
-      const response = await fetch("http://localhost:5000/cart/add", {
+      const response = await fetch("https://electronic-verse.onrender.com/cart/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

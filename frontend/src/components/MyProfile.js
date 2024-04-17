@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const MyProfile = () => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
-  const host = "http://localhost:5000";
+  const host = "https://electronic-verse.onrender.com";
 
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);

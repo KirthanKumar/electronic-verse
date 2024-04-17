@@ -9,7 +9,7 @@ const AdminBanUsers = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/admin/users", {
+      const response = await fetch("https://electronic-verse.onrender.com/api/admin/users", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -30,7 +30,7 @@ const AdminBanUsers = () => {
   const toggleBanStatus = async (userId, isBanned) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/ban-user/${userId}`,
+        `https://electronic-verse.onrender.com/api/admin/ban-user/${userId}`,
         {
           method: "PUT",
           headers: {

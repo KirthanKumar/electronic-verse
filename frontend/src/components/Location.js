@@ -33,7 +33,7 @@ const Location = () => {
 
       const userEmail = localStorage.getItem("email");
 
-      const response = await fetch("http://localhost:5000/api/user/address/location", {
+      const response = await fetch("https://electronic-verse.onrender.com/api/user/address/location", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

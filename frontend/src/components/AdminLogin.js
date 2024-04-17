@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [togglePassword, setTogglePassword] = useState(true);
-  const host = "http://localhost:5000";
+  const host = "https://electronic-verse.onrender.com";
 
   let navigate = useNavigate();
 

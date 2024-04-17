@@ -8,7 +8,7 @@ const SearchProducts = () => {
   const handleSearch = async (query) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/products/search?query=${query}`
+        `https://electronic-verse.onrender.com/products/search?query=${query}`
       );
       if (!response.ok) {
         throw new Error("Failed to search products");

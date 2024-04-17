@@ -5,7 +5,7 @@ const ConfirmLogin = () => {
   const [confirmationCode, setConfirmationCode] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const host = "http://localhost:5000";
+  const host = "https://electronic-verse.onrender.com";
 
   const handleSubmit = async (e) => {
     e.preventDefault();

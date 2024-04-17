@@ -20,7 +20,7 @@ const Products = ({ category, sort }) => {
 
   const fetchProductsBasedOnCategory = async () => {
     try {
-      let url = "http://localhost:5000/products/category";
+      let url = "https://electronic-verse.onrender.com/products/category";
       if (category !== "all") {
         url += `/${category}`;
       }
@@ -39,7 +39,7 @@ const Products = ({ category, sort }) => {
     try {
       console.log(sort);
       const response = await fetch(
-        `http://localhost:5000/products/sort?sortOption=${sort}`
+        `https://electronic-verse.onrender.com/products/sort?sortOption=${sort}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch products");
@@ -55,7 +55,7 @@ const Products = ({ category, sort }) => {
   const fetchProductsBasedOnCategoryAndSorting = async () => {
     try {
       console.log(sort);
-      let url = `http://localhost:5000/products/categorysort?sortOption=${sort}&category=${category}`;
+      let url = `https://electronic-verse.onrender.com/products/categorysort?sortOption=${sort}&category=${category}`;
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error("Failed to fetch products");

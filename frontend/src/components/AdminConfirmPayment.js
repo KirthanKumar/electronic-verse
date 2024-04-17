@@ -8,7 +8,7 @@ const Orders = () => {
       try {
         // Fetch orders from the backend API
         const response = await fetch(
-          "http://localhost:5000/api/admin/confirmpayment"
+          "https://electronic-verse.onrender.com/api/admin/confirmpayment"
         );
         if (response.ok) {
           const data = await response.json();
@@ -35,7 +35,7 @@ const Orders = () => {
       const newConfirmedStatus = !confirmed;
       // Send a PUT or POST request to update the confirmed status
       const response = await fetch(
-        `http://localhost:5000/api/admin/confirmpayment/${orderId}`,
+        `https://electronic-verse.onrender.com/api/admin/confirmpayment/${orderId}`,
         {
           method: "PUT", // Use PUT or POST based on your backend implementation
           headers: {

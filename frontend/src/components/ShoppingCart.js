@@ -15,7 +15,7 @@ const ShoppingCart = () => {
   const fetchCartItems = async () => {
     try {
       const email = localStorage.getItem("email");
-      const response = await fetch("http://localhost:5000/cart", {
+      const response = await fetch("https://electronic-verse.onrender.com/cart", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,7 +35,7 @@ const ShoppingCart = () => {
   const removeFromCart = async (productId) => {
     try {
       const email = localStorage.getItem("email");
-      await fetch(`http://localhost:5000/cart/remove/${productId}`, {
+      await fetch(`https://electronic-verse.onrender.com/cart/remove/${productId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -56,7 +56,7 @@ const ShoppingCart = () => {
       const email = localStorage.getItem("email");
 
       const response = await fetch(
-        `http://localhost:5000/cart/update/${productId}`,
+        `https://electronic-verse.onrender.com/cart/update/${productId}`,
         {
           method: "PUT",
           headers: {

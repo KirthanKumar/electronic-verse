@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const ForgotPassword = (props) => {
   const [email, setEmail] = useState("");
-  const host = "http://localhost:5000";
+  const host = "https://electronic-verse.onrender.com";
 
   const receiveResetEmail = async (e) => {
     e.preventDefault();

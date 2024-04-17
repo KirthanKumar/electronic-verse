@@ -8,7 +8,7 @@ const Orders = () => {
       try {
         const userEmail = localStorage.getItem("email");
         const response = await fetch(
-          `http://localhost:5000/checkout/orders?userEmail=${userEmail}`
+          `https://electronic-verse.onrender.com/checkout/orders?userEmail=${userEmail}`
         );
         if (response.ok) {
           const data = await response.json();

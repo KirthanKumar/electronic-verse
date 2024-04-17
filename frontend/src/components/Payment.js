@@ -14,7 +14,7 @@ const Payment = () => {
       e.preventDefault();
       const userEmail = localStorage.getItem("email");
       // Send request to backend to add payment details to database
-      const response = await fetch("http://localhost:5000/checkout/payment", {
+      const response = await fetch("https://electronic-verse.onrender.com/checkout/payment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -10,7 +10,7 @@ const Signup = (props) => {
     otp: "",
   });
 
-  const host = "http://localhost:5000";
+  const host = "https://electronic-verse.onrender.com";
 
   const [togglePassword, setTogglePassword] = useState(true);
 

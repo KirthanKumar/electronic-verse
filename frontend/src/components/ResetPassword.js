@@ -6,7 +6,7 @@ const ResetPassword = (props) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
-  const host = "http://localhost:5000";
+  const host = "https://electronic-verse.onrender.com";
 
   const resetPassword = async () => {
     try {

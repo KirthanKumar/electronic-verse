@@ -7,7 +7,7 @@ const CustomerChat = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const socket = io("http://localhost:5000");
+    const socket = io("https://electronic-verse.onrender.com");
 
     // Event listeners for incoming messages and chat history
     socket.on("chatHistory", handleChatHistory);
@@ -45,7 +45,7 @@ const CustomerChat = () => {
     const msgSender = "customer";
     const message = newMessage.trim();
     if (message) {
-      const socket = io("http://localhost:5000");
+      const socket = io("https://electronic-verse.onrender.com");
       socket.emit("message", { senderEmail, msgSender, message });
       setNewMessage("");
     }

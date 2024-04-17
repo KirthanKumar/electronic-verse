@@ -9,7 +9,7 @@ const AdminChat = (props) => {
 
   useEffect(() => {
     console.log(user.email);
-    const socket = io("http://localhost:5000");
+    const socket = io("https://electronic-verse.onrender.com");
 
     // Event listeners for incoming messages and chat history
     socket.on("chatHistory", handleChatHistory);
@@ -45,7 +45,7 @@ const AdminChat = (props) => {
     const msgSender = "admin";
     const message = newMessage.trim();
     if (message) {
-      const socket = io("http://localhost:5000");
+      const socket = io("https://electronic-verse.onrender.com");
       socket.emit("message", { senderEmail, msgSender, message });
       setNewMessage("");
     }
