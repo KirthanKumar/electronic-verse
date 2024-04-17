@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, HashRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Alert from "./components/Alert";
@@ -52,7 +52,7 @@ function App() {
   return (
     <React.StrictMode>
       <TotalAmountProvider>
-        <Router>
+        <HashRouter>
           {localStorage.getItem("role") === "admin" ? (
             <AdminNavbar />
           ) : (
@@ -118,7 +118,7 @@ function App() {
             <Route exact path="/chat" element={<CustomerChat />} />
             <Route exact path="/admin/chat" element={<AdminUserChat />} />
           </Routes>
-        </Router>
+        </HashRouter>
       </TotalAmountProvider>
     </React.StrictMode>
   );
