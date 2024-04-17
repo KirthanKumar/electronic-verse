@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/electronic-verse/static/css/main.f855e6bc.css",
-    "main.js": "/electronic-verse/static/js/main.0e19018e.js",
+    "main.js": "/electronic-verse/static/js/main.0453b5e0.js",
     "static/js/453.fa1719b0.chunk.js": "/electronic-verse/static/js/453.fa1719b0.chunk.js",
     "index.html": "/electronic-verse/index.html",
     "main.f855e6bc.css.map": "/electronic-verse/static/css/main.f855e6bc.css.map",
-    "main.0e19018e.js.map": "/electronic-verse/static/js/main.0e19018e.js.map",
+    "main.0453b5e0.js.map": "/electronic-verse/static/js/main.0453b5e0.js.map",
     "453.fa1719b0.chunk.js.map": "/electronic-verse/static/js/453.fa1719b0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.0e19018e.js"
+    "static/js/main.0453b5e0.js"
   ]
 }
