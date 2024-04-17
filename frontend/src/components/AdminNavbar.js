@@ -53,6 +53,16 @@ export default function Navbar() {
                 Ban Users
               </Link>
             </li>
+            <li className="nav-item">
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/admin/chat" ? "active" : ""
+                }`}
+                to="/admin/chat"
+              >
+                Chat
+              </Link>
+            </li>
           </ul>
           {!localStorage.getItem("token") ? (
             <form className="d-flex">

@@ -21,6 +21,7 @@
     "nodemailer": "^6.9.13",
     "otp-generator": "^4.0.1",
     "react-scripts": "^5.0.1",
+    "socket.io": "^4.7.5",
     "useragent": "^2.3.0"
   },
   "devDependencies": {

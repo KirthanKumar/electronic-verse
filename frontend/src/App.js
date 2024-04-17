@@ -22,6 +22,8 @@ import React from "react";
 import { TotalAmountProvider } from "./context/TotalAmountContext";
 import AdminConfirmPayment from "./components/AdminConfirmPayment";
 import AdminBanUsers from "./components/AdminBanUsers";
+import CustomerChat from "./components/CustomerChat";
+// import AdminChat from "./components/AdminChat";
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -113,6 +115,7 @@ function App() {
             />
             <Route exact path="/admin/banusers" element={<AdminBanUsers />} />
             <Route exact path="/location" element={<Location />} />
+            <Route exact path="/chat" element={<CustomerChat />} />
           </Routes>
         </Router>
       </TotalAmountProvider>
