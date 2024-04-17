@@ -5,31 +5,26 @@ const CustomerChat = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [loading, setLoading] = useState(true);
-  
-  const socket = io("http://localhost:5000");
+
   useEffect(() => {
-    const fetchChatHistory = async () => {
-      try {
-        const senderEmail = localStorage.getItem("email");
-        socket.emit("getChatHistory", { senderEmail }); // Emit event to request chat history
-      } catch (error) {
-        console.error("Error fetching chat history:", error);
-      }
-    };
-    fetchChatHistory();
+    const socket = io("http://localhost:5000");
 
-    // Listen for chat history event
+    // Event listeners for incoming messages and chat history
     socket.on("chatHistory", handleChatHistory);
-
-    // Listen for "message" event emitted by the backend
     socket.on("message", handleNewMessage);
 
+    // Fetch chat history when component mounts
+    socket.emit("getChatHistory", {
+      senderEmail: localStorage.getItem("email"),
+    });
+
+    // Clean up event listeners when component unmounts
     return () => {
-      // Clean up event listeners when the component unmounts
       socket.off("chatHistory", handleChatHistory);
       socket.off("message", handleNewMessage);
+      socket.disconnect();
     };
-  }, [socket]); // Ensure the effect runs when the socket changes
+  }, []);
 
   const handleChatHistory = (data) => {
     if (data.success) {
@@ -44,52 +39,45 @@ const CustomerChat = () => {
     setMessages((prevMessages) => [...prevMessages, message]);
   };
 
-  const handleMessageSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const senderEmail = localStorage.getItem("email");
-      // Emit message to the server via WebSocket
-      socket.emit("message", {
-        senderEmail,
-        message: newMessage,
-        msgSender: "customer",
-      });
+  const sendMessage = () => {
+    // Emit message to server
+    const senderEmail = localStorage.getItem("email");
+    const msgSender = "customer";
+    const message = newMessage.trim();
+    if (message) {
+      const socket = io("http://localhost:5000");
+      socket.emit("message", { senderEmail, msgSender, message });
       setNewMessage("");
-    } catch (error) {
-      console.error("Error sending message:", error);
     }
   };
 
   return (
-    <div>
-      <h1>Customer Chat</h1>
-      {loading ? (
-        <p>Loading chat history...</p>
-      ) : (
-        <div>
-          {messages.length === 0 ? (
-            <p>No messages to display</p>
-          ) : (
-            <div>
-              {messages.map((message, index) => (
-                <div key={index}>
-                  <p>
-                    {message.senderId}: {message.message}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
+    <div className="container">
+      {/* Render chat messages */}
+      {messages.map((msg, index) => (
+        <div
+          key={index}
+          style={{ textAlign: msg.msgSender === "customer" ? "left" : "right"}}
+        >
+          <span className="badge text-bg-primary m-3">
+            <h6>{msg.message}</h6>
+            <p className="text-dark">{msg.timestamp}</p>
+          </span>
         </div>
-      )}
-      <form onSubmit={handleMessageSubmit}>
+      ))}
+
+      {/* New message input */}
+      <div className="container d-flex mb-5">
         <input
           type="text"
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
+          className=" w-100"
         />
-        <button type="submit">Send</button>
-      </form>
+        <button className="btn btn-outline-primary m-1" onClick={sendMessage}>
+          Send
+        </button>
+      </div>
     </div>
   );
 };

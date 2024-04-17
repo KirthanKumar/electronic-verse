@@ -24,7 +24,6 @@ app.use("/cart", require("./routes/cartRoute"));
 app.use("/api/admin", require("./routes/adminRoute"));
 app.use("/checkout", require("./routes/paymentRoute"));
 app.use("/api/user/address", require("./routes/userLocationRoute"));
-// app.use("/chat", require("./routes/chatRoute"));
 
 const server = app.listen(port, () => {
   console.log(`iNotebook app listening on http://localhost:${port}`);
@@ -43,13 +42,13 @@ io.on("connection", (socket) => {
   // Handle incoming "getChatHistory" event
   socket.on("getChatHistory", async (data) => {
     try {
-      console.log("trying");
+      // console.log("trying");
       const { senderEmail } = data;
-      console.log(senderEmail);
+      // console.log(senderEmail);
 
       // Find sender (user) user by email
       const user = await User.findOne({ email: senderEmail });
-      console.log(user);
+      // console.log(user);
 
       if (!user) {
         return socket.emit("chatHistoryError", { error: "User not found" });
@@ -83,7 +82,7 @@ io.on("connection", (socket) => {
   // Handle incoming "message" event
   socket.on("message", async (data) => {
     try {
-      console.log("trying message event");
+      // console.log("trying message event");
       const { senderEmail, msgSender, message } = data;
 
       // Find sender user by email
@@ -111,6 +110,7 @@ io.on("connection", (socket) => {
         senderId: sender._id,
         recipientId: receiver._id,
         message,
+        msgSender
       });
       await newMessage.save();
 
@@ -118,10 +118,22 @@ io.on("connection", (socket) => {
       io.emit("message", {
         success: true,
         message: message,
+        msgSender
       });
     } catch (error) {
       console.error("Error sending message:", error);
       socket.emit("messageError", { error: "Failed to send message" });
+    }
+  });
+
+  socket.on("getUsers", async () => {
+    try {
+      // Fetch all users from the database
+      const users = await User.find();
+      // Emit the list of users to the client
+      socket.emit("users", { users });
+    } catch (error) {
+      console.error("Error fetching users:", error);
     }
   });
 

@@ -11,11 +11,19 @@ const messageSchema = new mongoose.Schema({
   },
   message: {
     type: String,
+    required: false,
+  },
+  msgSender: {
+    type: String,
     required: true,
   },
   timestamp: {
-    type: Date,
-    default: Date.now,
+    type: String, // or Date type if you prefer
+    default: () => new Date().toLocaleString(),
+  },
+  imageData: {
+    type: String, // You can use Buffer for binary data
+    required: false, // Depending on your use case
   },
 });
 

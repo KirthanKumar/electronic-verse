@@ -1,36 +1,37 @@
 import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
 
-const AdminChat = () => {
+const AdminChat = (props) => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [loading, setLoading] = useState(true);
-  const socket = io("http://localhost:5000");
+  const {user} = props
 
   useEffect(() => {
-    // Fetch chat history when component mounts
-    fetchChatHistory();
-    // Listen for new messages
+    console.log(user.email);
+    const socket = io("http://localhost:5000");
+
+    // Event listeners for incoming messages and chat history
+    socket.on("chatHistory", handleChatHistory);
     socket.on("message", handleNewMessage);
+
+    // Fetch chat history when component mounts
+    socket.emit("getChatHistory", { senderEmail: user.email });
+
+    // Clean up event listeners when component unmounts
     return () => {
+      socket.off("chatHistory", handleChatHistory);
+      socket.off("message", handleNewMessage);
       socket.disconnect();
     };
   }, []);
 
-  const fetchChatHistory = async () => {
-    try {
-      const response = await fetch(
-        "http://localhost:5000/chat/history/kirthankumar176@gmail.com"
-      );
-      if (response.ok) {
-        const data = await response.json();
-        setMessages(data.chatHistory);
-        setLoading(false);
-      } else {
-        throw new Error("Failed to fetch chat history");
-      }
-    } catch (error) {
-      console.error("Error fetching chat history:", error);
+  const handleChatHistory = (data) => {
+    if (data.success) {
+      setMessages(data.chatHistory);
+      setLoading(false);
+    } else {
+      console.error("Failed to fetch chat history:", data.error);
     }
   };
 
@@ -38,53 +39,49 @@ const AdminChat = () => {
     setMessages((prevMessages) => [...prevMessages, message]);
   };
 
-  const handleMessageSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      // Emit message to the server
-      socket.emit("message", {
-        message: newMessage,
-        senderEmail: "kirthankumar176@gmail.com",
-        msgSender: "admin",
-      });
+  const sendMessage = () => {
+    // Emit message to server
+    const senderEmail = user.email;
+    const msgSender = "admin";
+    const message = newMessage.trim();
+    if (message) {
+      const socket = io("http://localhost:5000");
+      socket.emit("message", { senderEmail, msgSender, message });
       setNewMessage("");
-    } catch (error) {
-      console.error("Error sending message:", error);
     }
   };
 
   return (
     <div>
-      <h1>Admin Chat</h1>
-      {loading ? (
-        <p>Loading chat history...</p>
-      ) : (
-        <div>
-          {messages.length === 0 ? (
-            <p>No messages to display</p>
-          ) : (
-            <div>
-              {messages.map((message, index) => (
-                <div key={index}>
-                  <p>
-                    {message.senderId}: {message.message}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
+      {/* Render chat messages */}
+      {messages.map((msg, index) => (
+        <div
+          key={index}
+          style={{ textAlign: msg.msgSender === "customer" ? "left" : "right" }}
+          className="m-3"
+        >
+          <span className="badge text-bg-primary">
+            <h6>{msg.message}</h6>
+            <p className="text-dark">{msg.timestamp}</p>
+          </span>
         </div>
-      )}
-      <form onSubmit={handleMessageSubmit}>
+      ))}
+
+      {/* New message input */}
+      <div className="container d-flex mb-5">
         <input
           type="text"
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
+          className=" w-100"
         />
-        <button type="submit">Send</button>
-      </form>
+        <button className="btn btn-outline-primary m-1" onClick={sendMessage}>
+          Send
+        </button>
+      </div>
     </div>
   );
+
 };
 
 export default AdminChat;
