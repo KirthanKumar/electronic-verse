@@ -58,4 +58,4 @@ jobs:
           render login --email skirthankumar13579@gmail.com --password dystopia135680@?
 
           # Deploy the backend to Render (replace YOUR_SERVICE_NAME with the name of your Render service and YOUR_GITHUB_REPO with your GitHub repository URL)
-          render deploy inotebook --config ./backend/render.yaml --branch main --github-repo https://github.com/KirthanKumar/inotebook/ --directory ./backend
+          render deploy electronic-verse --config ./backend/render.yaml --branch main --github-repo https://github.com/KirthanKumar/electronic-verse/ --directory ./backend
